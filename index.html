@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Masterclass — Ship AI Features That Actually Convert</title>
+  <title>Free Masterclass — You Will Never Open Meta Ads Manager Again</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -16,23 +16,24 @@
     <div class="modal-content">
       <button type="button" class="modal-close" data-close-modal aria-label="Close">&times;</button>
       <h2 class="modal-title">Get instant access</h2>
-      <p class="modal-subtitle">Enter your details to watch the full masterclass.</p>
+      <p class="modal-subtitle">Enter your details to watch the masterclass and get your free templates.</p>
       <form id="lead-form" class="lead-form" novalidate>
-        <label for="lead-name">Name</label>
-        <input type="text" id="lead-name" name="name" required placeholder="Your name" autocomplete="name" />
+        <label for="lead-name">First Name</label>
+        <input type="text" id="lead-name" name="name" required placeholder="Your first name" autocomplete="given-name" />
         <label for="lead-email">Email</label>
         <input type="email" id="lead-email" name="email" required placeholder="you@company.com" autocomplete="email" />
-        <label for="lead-phone">Phone</label>
+        <label for="lead-phone">Phone <span class="label-optional">(optional)</span></label>
         <input type="tel" id="lead-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
-        <button type="submit" class="btn btn-submit">Watch the training →</button>
+        <button type="submit" class="btn btn-submit">Get Instant Access &rarr;</button>
+        <p class="form-fine-print">By registering, you'll get the masterclass link + free templates via email. We'll also send you occasional tips on AI automation. Unsubscribe anytime.</p>
       </form>
     </div>
   </div>
 
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo"><span class="logo-mark">◇</span> NEXUS</a>
-      <button type="button" class="btn btn-cta" data-open-modal>Watch now</button>
+      <a href="#" class="logo">CYNTHIA</a>
+      <button type="button" class="btn btn-cta" data-open-modal>Watch Free Masterclass</button>
     </div>
   </header>
 
@@ -41,193 +42,218 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-content">
-          <span class="badge">Free full masterclass</span>
+          <span class="badge">Free Masterclass</span>
           <h1 class="hero-headline">
-            The #1 missed step to ship AI that users actually adopt —
-            <span class="hero-headline-accent">and that scales.</span>
+            You Will Never Open Meta Ads Manager
+            <span class="hero-headline-accent">Again.</span>
           </h1>
           <p class="hero-desc">
-            A practical walkthrough showing how product and eng teams ship AI features that drive retention and revenue — without the usual guesswork.
+            Learn how to run your entire ad account, follow up with every lead, and book calls automatically &mdash; all from a single text conversation.
           </p>
-          <ul class="hero-benefits">
-            <li>How to scope AI use cases that map to real user problems</li>
-            <li>How to design prompts and guardrails that stay reliable in production</li>
-            <li>How to measure and improve AI quality without drowning in metrics</li>
-            <li>How to integrate LLMs and APIs without rewriting your stack</li>
-            <li>How to roll out AI features safely with feature flags and fallbacks</li>
-            <li>How to position AI in your product so it justifies higher pricing</li>
-          </ul>
+          <button type="button" class="btn btn-cta btn-large" data-open-modal>Watch Free Masterclass &rarr;</button>
+          <p class="hero-trust">No credit card required. No pitch during training.</p>
         </div>
-        <div class="hero-video">
-          <div class="video-wrapper">
-            <!-- Replace .video-thumb with real thumbnail: add background-image or <img> and keep .video-thumb-overlay for contrast -->
-            <div class="video-thumb" data-open-modal role="button" tabindex="0">
-              <div class="video-thumb-overlay"></div>
-              <div class="video-thumb-inner">
-                <span class="video-label">BUILD WITH LLMs</span>
-                <span class="video-ref">API · Prompts · Evaluation</span>
-                <ul class="video-bullets">
-                  <li>Use cases</li>
-                  <li>Guardrails</li>
-                  <li>Observability</li>
-                  <li>Ship & iterate</li>
-                </ul>
-                <div class="play-button">
-                  <span class="play-icon">
-                    <span class="play-triangle"></span>
-                  </span>
-                  <span class="play-text">Watch full video</span>
-                </div>
-                <span class="video-graphic">Ship it.</span>
-              </div>
+        <div class="hero-visual">
+          <div class="imessage-mockup">
+            <div class="imessage-header">
+              <span class="imessage-avatar">C</span>
+              <span class="imessage-name">Cynthia</span>
+            </div>
+            <div class="imessage-body">
+              <div class="msg msg-sent">Create a campaign targeting med spa owners in Miami. $200/day budget.</div>
+              <div class="msg msg-received">Done! Campaign "Miami Med Spas" is live. Estimated reach: 12,400. I'll monitor performance and report back tonight.</div>
+              <div class="msg msg-sent">Pause the underperforming ads.</div>
+              <div class="msg msg-received">Paused 2 ads with CPA above $45. The remaining 3 are averaging $18/lead.</div>
+              <div class="msg msg-sent">Follow up with everyone who clicked but didn't book.</div>
+              <div class="msg msg-received">Sent personalized follow-ups to 23 leads. 4 just booked on your calendar.</div>
             </div>
           </div>
-          <button type="button" class="btn btn-cta btn-block" data-open-modal>Watch now</button>
         </div>
       </div>
     </section>
 
-    <!-- What You'll Discover -->
-    <section class="discover">
+    <!-- Credibility Bar -->
+    <section class="credibility">
       <div class="container">
-        <h2 class="section-title">What you'll discover</h2>
-        <p class="section-subtitle">The gap isn't knowing AI — it's shipping it in a way that sticks.</p>
-        <div class="discover-grid">
-          <article class="discover-card">
-            <span class="discover-num">01</span>
-            <h3>Scoping AI use cases that convert</h3>
-            <p>Learn how to pick and validate AI features that solve real problems and show up in your North Star metrics. You'll see a simple framework for "build vs. buy vs. wait" so you don't over-invest in the wrong bet.</p>
-          </article>
-          <article class="discover-card">
-            <span class="discover-num">02</span>
-            <h3>Prompts, guardrails & reliability</h3>
-            <p>See how to design prompts and system boundaries so outputs stay consistent and safe in production. Covers structure, few-shot patterns, and when to reach for fine-tuning or RAG instead of prompt-only.</p>
-          </article>
-          <article class="discover-card">
-            <span class="discover-num">03</span>
-            <h3>Observability & evaluation</h3>
-            <p>Understand what to log, how to score quality, and how to set up lightweight evals so you can improve models over time. Focus on metrics that matter for your product, not vanity AI stats.</p>
-          </article>
-          <article class="discover-card">
-            <span class="discover-num">04</span>
-            <h3>Repeatable shipping workflows</h3>
-            <p>Learn how teams turn AI experiments into repeatable release cycles: feature flags, fallbacks, A/B tests, and rollback strategies. Scale AI work without turning every release into a fire drill.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Accordion FAQ -->
-    <section class="accordion-section">
-      <div class="container container--with-side">
-        <div class="accordion-list">
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Decide when to use an LLM vs. rules vs. hybrid</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Use an LLM when the task is open-ended or language-heavy and you can tolerate some variance. Use rules when outcomes must be deterministic (e.g. validation, pricing). Use a hybrid when you need LLM flexibility with rule-based guardrails or fallbacks.</p>
-            </div>
+        <p class="credibility-label">Taught by the team behind</p>
+        <div class="credibility-stats">
+          <div class="stat">
+            <span class="stat-number">$500K+</span>
+            <span class="stat-desc">in ad spend managed via text</span>
           </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Design prompts that stay stable across model updates</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Structure prompts with a clear system role, few-shot examples, and explicit output format (e.g. JSON). Version and log prompts so you can compare behavior after model updates. Run a small eval set before switching models in production.</p>
-            </div>
+          <div class="stat">
+            <span class="stat-number">47</span>
+            <span class="stat-desc">businesses automated</span>
           </div>
-          <div class="accordion-item accordion-item--highlight">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Ship AI features with confidence and clear rollback paths</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Use feature flags so you can turn the AI path on or off without a deploy. Define fallbacks (e.g. cached result, human handoff) and set error budgets. Have a one-click rollback plan and test it before launch.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Choose the right API and model tier for your use case</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Match the model to the task: use smaller/cheaper models for classification or simple extraction, and larger models for creative or complex reasoning. Consider latency and cost; start with a single provider and abstract behind an interface so you can swap later.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Tell the difference between prompt tweaks vs. architecture changes</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Prompt tweaks = changing instructions, examples, or format without changing how you call the model or process the response. Architecture changes = adding RAG, tools, multi-step flows, or a different model. Try prompt tweaks first; move to architecture changes when you hit clear limits.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Handle AI failures gracefully in the UX</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Show loading states and timeouts so users know the system is working. On errors, display a clear message and a fallback (e.g. “Try again” or “Use this default”). Avoid leaving users stuck with no next step; always offer a path forward.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Integrate RAG and tools when you need them</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Use RAG when the model needs up-to-date or private data (docs, knowledge base). Use tools when the model must take actions (search, API calls, calculations). Start simple; add RAG or tools when you see hallucinations or missing context.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Measure AI impact on retention and revenue</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Track usage of the AI feature and tie it to core metrics: retention, conversion, or revenue per user. Run A/B tests with the feature on vs. off. Use cohorts so you can see whether users who adopt the AI feature stick around or pay more.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
-              <span class="accordion-trigger-text">Run a simple decision framework for your team</span>
-              <span class="accordion-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="accordion-body">
-              <p>Create a short checklist: Is this task a good fit for an LLM? Do we have a fallback? How do we measure success? Document when to use which model or pattern so the team doesn’t reinvent the wheel. Review and update the framework as you learn.</p>
-            </div>
+          <div class="stat">
+            <span class="stat-number">10x</span>
+            <span class="stat-desc">faster lead response time</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Who This Is For + CTA -->
-    <section class="who-cta">
+    <!-- What If Section (Pain → New Way) -->
+    <section class="what-if">
       <div class="container">
-        <div class="who-box">
-          <h2 class="who-title">Who this is for</h2>
-          <p class="who-intro">This training is built for product leads, eng managers, and founders who:</p>
-          <ul class="who-list">
-            <li>Ship or plan AI-powered features</li>
-            <li>Want a clear playbook instead of ad-hoc experiments</li>
-            <li>Care about reliability and user trust</li>
-            <li>Are done with "we tried AI" and want "we ship AI that works"</li>
-          </ul>
+        <h2 class="section-title">What if you could run your entire business from iMessage?</h2>
+        <div class="compare-grid">
+          <div class="compare-card compare-old">
+            <h3 class="compare-heading">Right now, running ads means:</h3>
+            <ul class="compare-list">
+              <li>Logging into Ads Manager</li>
+              <li>Creating campaigns manually</li>
+              <li>Writing copy from scratch</li>
+              <li>Monitoring performance daily</li>
+              <li>Responding to leads (eventually)</li>
+              <li>Following up (maybe)</li>
+              <li>Booking calls (hopefully)</li>
+            </ul>
+            <p class="compare-verdict">It's slow. It's fragmented. And most leads die in the gap.</p>
+          </div>
+          <div class="compare-card compare-new">
+            <h3 class="compare-heading">What if instead, you just texted:</h3>
+            <div class="compare-texts">
+              <blockquote>&ldquo;Create a campaign targeting med spa owners in Miami. $200/day budget.&rdquo;</blockquote>
+              <p class="done-tag">Done.</p>
+              <blockquote>&ldquo;Pause the underperforming ads.&rdquo;</blockquote>
+              <p class="done-tag">Done.</p>
+              <blockquote>&ldquo;Follow up with everyone who clicked but didn't book.&rdquo;</blockquote>
+              <p class="done-tag">Done.</p>
+              <blockquote>&ldquo;Book them on my calendar.&rdquo;</blockquote>
+              <p class="done-tag">Done.</p>
+            </div>
+            <p class="compare-verdict"><strong>No dashboard. No clicking. No logging in.</strong> Just conversation.</p>
+          </div>
         </div>
-        <p class="who-benefit">If you want a repeatable process instead of guesswork, this training will give you one.</p>
-        <button type="button" class="btn btn-cta btn-large" data-open-modal>Reserve your seat and watch the training →</button>
+      </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="learn">
+      <div class="container">
+        <h2 class="section-title">In this free 45-minute masterclass, you'll learn:</h2>
+        <div class="learn-list">
+          <div class="learn-item">
+            <span class="learn-check"></span>
+            <div>
+              <h3>The text-first framework</h3>
+              <p>How to launch, manage, and optimize ad campaigns without ever opening Ads Manager.</p>
+            </div>
+          </div>
+          <div class="learn-item">
+            <span class="learn-check"></span>
+            <div>
+              <h3>The follow-up system that books calls automatically</h3>
+              <p>Why most businesses lose 50-80% of leads, and how AI fixes it in real-time.</p>
+            </div>
+          </div>
+          <div class="learn-item">
+            <span class="learn-check"></span>
+            <div>
+              <h3>Live demo: Watch it happen</h3>
+              <p>See a real campaign created, leads followed up with, and calls booked &mdash; all via text message.</p>
+            </div>
+          </div>
+          <div class="learn-item">
+            <span class="learn-check"></span>
+            <div>
+              <h3>The "AI employee" model</h3>
+              <p>How to replace your SDR, ad manager, and assistant with one conversational AI that works 24/7.</p>
+            </div>
+          </div>
+          <div class="learn-item">
+            <span class="learn-check"></span>
+            <div>
+              <h3>The numbers</h3>
+              <p>Real ROI breakdown: agency costs vs. AI employee costs (spoiler: it's not close).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lead Magnets -->
+    <section class="magnets">
+      <div class="container">
+        <h2 class="section-title">Plus, you'll get these free tools:</h2>
+        <div class="magnet-grid">
+          <article class="magnet-card">
+            <span class="magnet-icon">&#128241;</span>
+            <h3>The Text-First Campaign Playbook</h3>
+            <p>Step-by-step workflow for launching ads without touching a dashboard. Copy and paste the exact messages.</p>
+          </article>
+          <article class="magnet-card">
+            <span class="magnet-icon">&#128172;</span>
+            <h3>5 Texts That Replace Your Ad Manager</h3>
+            <p>The actual text prompts that create campaigns, analyze performance, and optimize spend &mdash; ready to use.</p>
+          </article>
+          <article class="magnet-card">
+            <span class="magnet-icon">&#128200;</span>
+            <h3>AI Employee ROI Calculator</h3>
+            <p>Compare the cost of hiring an SDR + ad manager + assistant vs. one AI employee. See your savings instantly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">What business owners are saying:</h2>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial-card">
+            <p>&ldquo;I used to spend 2 hours a day in Ads Manager. Now I text Cynthia in the morning and check results at night. My cost per lead dropped 40%.&rdquo;</p>
+            <cite>&mdash; Mike R., Home Services</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>&ldquo;She booked 12 calls last week while I was on vacation. I didn't touch anything.&rdquo;</p>
+            <cite>&mdash; Sarah K., Med Spa Owner</cite>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>&ldquo;I fired my agency. Cynthia does more for $2k/month than they did for $5k.&rdquo;</p>
+            <cite>&mdash; James T., Real Estate Investor</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <div class="container">
+        <h2 class="section-title">Who's teaching this?</h2>
+        <div class="about-body">
+          <p>This masterclass is taught by the team at <strong>Cynthia Concierge</strong> &mdash; the company building AI employees for small businesses.</p>
+          <p>We've helped 47 businesses replace manual ad management, lead follow-up, and appointment booking with conversational AI.</p>
+          <p>Our clients have managed over $500K in ad spend without logging into a dashboard.</p>
+          <p><strong>This isn't theory. This is how we run our own business &mdash; and how our clients run theirs.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="section-title">Ready to never open Ads Manager again?</h2>
+        <p class="section-subtitle">Watch the free masterclass and get your templates instantly.</p>
+        <button type="button" class="btn btn-cta btn-large" data-open-modal>Watch Free Masterclass &rarr;</button>
+        <ul class="trust-list">
+          <li>On-demand &mdash; watch anytime</li>
+          <li>45 minutes &mdash; no fluff</li>
+          <li>Free templates included</li>
+          <li>No credit card required</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p class="footer-text">© Nexus. All rights reserved.</p>
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; 2026 Cynthia Concierge. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
