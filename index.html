@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Masterclass — Ship AI Features That Actually Convert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Lead capture modal -->
+  <div id="lead-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      <h2 class="modal-title">Get instant access</h2>
+      <p class="modal-subtitle">Enter your details to watch the full masterclass.</p>
+      <form id="lead-form" class="lead-form" novalidate>
+        <label for="lead-name">Name</label>
+        <input type="text" id="lead-name" name="name" required placeholder="Your name" autocomplete="name" />
+        <label for="lead-email">Email</label>
+        <input type="email" id="lead-email" name="email" required placeholder="you@company.com" autocomplete="email" />
+        <label for="lead-phone">Phone</label>
+        <input type="tel" id="lead-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
+        <button type="submit" class="btn btn-submit">Watch the training →</button>
+      </form>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo"><span class="logo-mark">◇</span> NEXUS</a>
+      <button type="button" class="btn btn-cta" data-open-modal>Watch now</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="badge">Free full masterclass</span>
+          <h1 class="hero-headline">
+            The #1 missed step to ship AI that users actually adopt —
+            <span class="hero-headline-accent">and that scales.</span>
+          </h1>
+          <p class="hero-desc">
+            A practical walkthrough showing how product and eng teams ship AI features that drive retention and revenue — without the usual guesswork.
+          </p>
+          <ul class="hero-benefits">
+            <li>How to scope AI use cases that map to real user problems</li>
+            <li>How to design prompts and guardrails that stay reliable in production</li>
+            <li>How to measure and improve AI quality without drowning in metrics</li>
+            <li>How to integrate LLMs and APIs without rewriting your stack</li>
+            <li>How to roll out AI features safely with feature flags and fallbacks</li>
+            <li>How to position AI in your product so it justifies higher pricing</li>
+          </ul>
+        </div>
+        <div class="hero-video">
+          <div class="video-wrapper">
+            <!-- Replace .video-thumb with real thumbnail: add background-image or <img> and keep .video-thumb-overlay for contrast -->
+            <div class="video-thumb" data-open-modal role="button" tabindex="0">
+              <div class="video-thumb-overlay"></div>
+              <div class="video-thumb-inner">
+                <span class="video-label">BUILD WITH LLMs</span>
+                <span class="video-ref">API · Prompts · Evaluation</span>
+                <ul class="video-bullets">
+                  <li>Use cases</li>
+                  <li>Guardrails</li>
+                  <li>Observability</li>
+                  <li>Ship & iterate</li>
+                </ul>
+                <div class="play-button">
+                  <span class="play-icon">
+                    <span class="play-triangle"></span>
+                  </span>
+                  <span class="play-text">Watch full video</span>
+                </div>
+                <span class="video-graphic">Ship it.</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-cta btn-block" data-open-modal>Watch now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You'll Discover -->
+    <section class="discover">
+      <div class="container">
+        <h2 class="section-title">What you'll discover</h2>
+        <p class="section-subtitle">The gap isn't knowing AI — it's shipping it in a way that sticks.</p>
+        <div class="discover-grid">
+          <article class="discover-card">
+            <span class="discover-num">01</span>
+            <h3>Scoping AI use cases that convert</h3>
+            <p>Learn how to pick and validate AI features that solve real problems and show up in your North Star metrics. You'll see a simple framework for "build vs. buy vs. wait" so you don't over-invest in the wrong bet.</p>
+          </article>
+          <article class="discover-card">
+            <span class="discover-num">02</span>
+            <h3>Prompts, guardrails & reliability</h3>
+            <p>See how to design prompts and system boundaries so outputs stay consistent and safe in production. Covers structure, few-shot patterns, and when to reach for fine-tuning or RAG instead of prompt-only.</p>
+          </article>
+          <article class="discover-card">
+            <span class="discover-num">03</span>
+            <h3>Observability & evaluation</h3>
+            <p>Understand what to log, how to score quality, and how to set up lightweight evals so you can improve models over time. Focus on metrics that matter for your product, not vanity AI stats.</p>
+          </article>
+          <article class="discover-card">
+            <span class="discover-num">04</span>
+            <h3>Repeatable shipping workflows</h3>
+            <p>Learn how teams turn AI experiments into repeatable release cycles: feature flags, fallbacks, A/B tests, and rollback strategies. Scale AI work without turning every release into a fire drill.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordion FAQ -->
+    <section class="accordion-section">
+      <div class="container container--with-side">
+        <div class="accordion-list">
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Decide when to use an LLM vs. rules vs. hybrid</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Use an LLM when the task is open-ended or language-heavy and you can tolerate some variance. Use rules when outcomes must be deterministic (e.g. validation, pricing). Use a hybrid when you need LLM flexibility with rule-based guardrails or fallbacks.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Design prompts that stay stable across model updates</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Structure prompts with a clear system role, few-shot examples, and explicit output format (e.g. JSON). Version and log prompts so you can compare behavior after model updates. Run a small eval set before switching models in production.</p>
+            </div>
+          </div>
+          <div class="accordion-item accordion-item--highlight">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Ship AI features with confidence and clear rollback paths</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Use feature flags so you can turn the AI path on or off without a deploy. Define fallbacks (e.g. cached result, human handoff) and set error budgets. Have a one-click rollback plan and test it before launch.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Choose the right API and model tier for your use case</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Match the model to the task: use smaller/cheaper models for classification or simple extraction, and larger models for creative or complex reasoning. Consider latency and cost; start with a single provider and abstract behind an interface so you can swap later.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Tell the difference between prompt tweaks vs. architecture changes</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Prompt tweaks = changing instructions, examples, or format without changing how you call the model or process the response. Architecture changes = adding RAG, tools, multi-step flows, or a different model. Try prompt tweaks first; move to architecture changes when you hit clear limits.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Handle AI failures gracefully in the UX</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Show loading states and timeouts so users know the system is working. On errors, display a clear message and a fallback (e.g. “Try again” or “Use this default”). Avoid leaving users stuck with no next step; always offer a path forward.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Integrate RAG and tools when you need them</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Use RAG when the model needs up-to-date or private data (docs, knowledge base). Use tools when the model must take actions (search, API calls, calculations). Start simple; add RAG or tools when you see hallucinations or missing context.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Measure AI impact on retention and revenue</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Track usage of the AI feature and tie it to core metrics: retention, conversion, or revenue per user. Run A/B tests with the feature on vs. off. Use cohorts so you can see whether users who adopt the AI feature stick around or pay more.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" data-accordion aria-expanded="false">
+              <span class="accordion-trigger-text">Run a simple decision framework for your team</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Create a short checklist: Is this task a good fit for an LLM? Do we have a fallback? How do we measure success? Document when to use which model or pattern so the team doesn’t reinvent the wheel. Review and update the framework as you learn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who This Is For + CTA -->
+    <section class="who-cta">
+      <div class="container">
+        <div class="who-box">
+          <h2 class="who-title">Who this is for</h2>
+          <p class="who-intro">This training is built for product leads, eng managers, and founders who:</p>
+          <ul class="who-list">
+            <li>Ship or plan AI-powered features</li>
+            <li>Want a clear playbook instead of ad-hoc experiments</li>
+            <li>Care about reliability and user trust</li>
+            <li>Are done with "we tried AI" and want "we ship AI that works"</li>
+          </ul>
+        </div>
+        <p class="who-benefit">If you want a repeatable process instead of guesswork, this training will give you one.</p>
+        <button type="button" class="btn btn-cta btn-large" data-open-modal>Reserve your seat and watch the training →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© Nexus. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
