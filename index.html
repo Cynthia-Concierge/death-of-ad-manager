@@ -53,7 +53,8 @@
         <label for="lead-email">Email</label>
         <input type="email" id="lead-email" name="email" required placeholder="you@company.com" autocomplete="email" />
         <label for="lead-phone">Phone</label>
-        <input type="tel" id="lead-phone" name="phone" required placeholder="(555) 000-0000" autocomplete="tel" />
+        <input type="tel" id="lead-phone" name="phone" required placeholder="(555) 000-0000" autocomplete="tel" maxlength="14" inputmode="tel" />
+        <p class="form-error" id="phone-error" aria-live="polite"></p>
         <button type="submit" class="btn btn-submit">Get Instant Access &rarr;</button>
         <p class="form-fine-print">You'll get the training link + free playbooks via email. We'll also send occasional tips on AI for business. Unsubscribe anytime.</p>
       </form>

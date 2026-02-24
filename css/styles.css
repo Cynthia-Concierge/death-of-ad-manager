@@ -249,6 +249,20 @@ a {
   letter-spacing: 0;
   color: var(--text-dim);
 }
+.form-error {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #ff4d4f;
+  line-height: 1.4;
+  min-height: 0;
+}
+.form-error:empty {
+  display: none;
+}
+.input-error {
+  border-color: #ff4d4f !important;
+  box-shadow: 0 0 0 1px rgba(255, 77, 79, 0.3);
+}
 .form-fine-print {
   margin: 12px 0 0;
   font-size: 12px;

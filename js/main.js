@@ -81,6 +81,39 @@
     }
   })();
 
+  // Phone auto-formatter: (555) 123-4567
+  var phoneInput = document.getElementById('lead-phone');
+  var phoneError = document.getElementById('phone-error');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      var digits = this.value.replace(/\D/g, '').slice(0, 10);
+      var formatted = '';
+      if (digits.length > 0) formatted = '(' + digits.slice(0, 3);
+      if (digits.length >= 3) formatted += ') ';
+      if (digits.length > 3) formatted += digits.slice(3, 6);
+      if (digits.length >= 6) formatted += '-';
+      if (digits.length > 6) formatted += digits.slice(6, 10);
+      this.value = formatted;
+      // Clear error on edit
+      if (phoneError) { phoneError.textContent = ''; phoneInput.classList.remove('input-error'); }
+    });
+  }
+
+  // Validate phone: must be 10 digits, no obvious fakes
+  function validatePhone(raw) {
+    var digits = raw.replace(/\D/g, '');
+    if (digits.length !== 10) return 'Please enter a valid 10-digit phone number.';
+    // Reject all same digit (1111111111, 0000000000, etc)
+    if (/^(\d)\1{9}$/.test(digits)) return 'Please enter a real phone number.';
+    // Reject sequential (1234567890, 0987654321)
+    if (digits === '1234567890' || digits === '0987654321') return 'Please enter a real phone number.';
+    // Reject 555 area code (fictional)
+    if (digits.slice(0, 3) === '555') return 'Please enter a real phone number.';
+    // Area code can't start with 0 or 1
+    if (digits[0] === '0' || digits[0] === '1') return 'Please enter a valid US phone number.';
+    return '';
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var nameEl = form.querySelector('#lead-name');
@@ -94,6 +127,14 @@
       if (!name) { nameEl && nameEl.focus(); return; }
       if (!email) { emailEl && emailEl.focus(); return; }
       if (!phone) { phoneEl && phoneEl.focus(); return; }
+      return;
+    }
+
+    // Validate phone before submitting
+    var phoneErr = validatePhone(phone);
+    if (phoneErr) {
+      if (phoneError) { phoneError.textContent = phoneErr; phoneEl.classList.add('input-error'); }
+      phoneEl.focus();
       return;
     }
 
