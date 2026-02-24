@@ -58,6 +58,29 @@
     return match ? match[2] : '';
   }
 
+  // Capture UTM parameters on page load and persist in sessionStorage
+  // so they survive if user navigates around before opting in
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var utmParams = {};
+  (function captureUtm() {
+    var params = new URLSearchParams(window.location.search);
+    var hasNew = false;
+    UTM_KEYS.forEach(function (key) {
+      var val = params.get(key);
+      if (val) { utmParams[key] = val; hasNew = true; }
+    });
+    // Persist to sessionStorage so they survive modal open/close
+    if (hasNew) {
+      try { sessionStorage.setItem('funnel_utm', JSON.stringify(utmParams)); } catch (e) {}
+    } else {
+      // Restore from sessionStorage if no new UTMs in URL
+      try {
+        var stored = sessionStorage.getItem('funnel_utm');
+        if (stored) utmParams = JSON.parse(stored);
+      } catch (e) {}
+    }
+  })();
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var nameEl = form.querySelector('#lead-name');
@@ -106,6 +129,7 @@
       funnel: 'death-of-ad-manager',
       fbc: getCookie('_fbc'),
       fbp: getCookie('_fbp'),
+      utm: Object.keys(utmParams).length ? utmParams : undefined,
     };
 
     // Safety net: redirect after 6s no matter what
