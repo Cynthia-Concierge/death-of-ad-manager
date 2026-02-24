@@ -104,6 +104,24 @@ a {
   background: var(--accent-hover);
   box-shadow: 0 0 24px var(--accent-glow);
 }
+.btn-loading {
+  opacity: 0.85;
+  pointer-events: none;
+}
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 .modal {
   position: fixed;
   top: 0;

@@ -81,14 +81,23 @@
       }));
     } catch (err) {}
 
-    // Disable button
+    // Disable button + show loading spinner
     var btn = form.querySelector('button[type="submit"]');
-    if (btn) { btn.disabled = true; btn.textContent = 'Setting things up...'; }
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="btn-spinner"></span> Setting things up\u2026';
+      btn.classList.add('btn-loading');
+    }
+
+    // Disable all inputs so user can't double-submit
+    form.querySelectorAll('input').forEach(function (el) { el.disabled = true; });
 
     // Clean phone - strip non-digits, prepend +1 if 10 digits
     var cleanPhone = phone.replace(/\D/g, '');
     if (cleanPhone.length === 10) cleanPhone = '+1' + cleanPhone;
     else if (!cleanPhone.startsWith('+')) cleanPhone = '+' + cleanPhone;
+
+    var redirectUrl = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
 
     var payload = {
       name: name,
@@ -99,6 +108,12 @@
       fbp: getCookie('_fbp'),
     };
 
+    // Safety net: redirect after 6s no matter what
+    var safetyTimeout = setTimeout(function () {
+      closeModal();
+      window.location.href = redirectUrl;
+    }, 6000);
+
     fetch('https://app.cynthiaconcierge.com/vapi/funnel/opt-in', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -106,16 +121,17 @@
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        clearTimeout(safetyTimeout);
         if (typeof fbq === 'function' && data.eventId) {
           fbq('track', 'Lead', { content_name: 'death-of-ad-manager' }, { eventID: data.eventId });
-          fbq('track', 'CompleteRegistration', { content_name: 'death-of-ad-manager' }, { eventID: data.eventId + '-cr' });
         }
         closeModal();
-        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
+        window.location.href = redirectUrl;
       })
       .catch(function () {
+        clearTimeout(safetyTimeout);
         closeModal();
-        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
+        window.location.href = redirectUrl;
       });
   });
 
