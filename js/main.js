@@ -94,12 +94,12 @@
       name: name,
       email: email,
       phone: cleanPhone,
-      source: 'death-of-ad-manager',
+      funnel: 'death-of-ad-manager',
       fbc: getCookie('_fbc'),
       fbp: getCookie('_fbp'),
     };
 
-    fetch('https://app.cynthiaconcierge.com/funnel/opt-in', {
+    fetch('https://app.cynthiaconcierge.com/vapi/funnel/opt-in', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

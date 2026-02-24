@@ -100,7 +100,7 @@
     var phone = params.get('p') || '';
 
     function sendEvent(type) {
-      var url = 'https://app.cynthiaconcierge.com/funnel/event';
+      var url = 'https://app.cynthiaconcierge.com/vapi/funnel/event';
       var body = JSON.stringify({ phone: phone, event: type });
       if (navigator.sendBeacon) {
         navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
