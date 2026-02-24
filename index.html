@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -43,8 +42,7 @@
         <label for="lead-email">Email</label>
         <input type="email" id="lead-email" name="email" required placeholder="you@company.com" autocomplete="email" />
         <label for="lead-phone">Phone</label>
-        <input type="tel" id="lead-phone" name="phone" required autocomplete="tel" inputmode="numeric" placeholder="Phone number" />
-        <p id="phone-error" class="form-error" style="display:none;">Please enter a valid phone number</p>
+        <input type="tel" id="lead-phone" name="phone" required autocomplete="tel" placeholder="(216) 644-7650" />
         <button type="submit" class="btn btn-submit">Get Instant Access &rarr;</button>
       </form>
     </div>
@@ -269,20 +267,6 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
-  <script>
-    var phoneInput = document.querySelector('#lead-phone');
-    if (phoneInput) {
-      window.iti = intlTelInput(phoneInput, {
-        initialCountry: 'us',
-        preferredCountries: ['us', 'ca', 'gb', 'au'],
-        separateDialCode: true,
-        strictMode: true,
-        formatOnDisplay: true,
-        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js',
-      });
-    }
-  </script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

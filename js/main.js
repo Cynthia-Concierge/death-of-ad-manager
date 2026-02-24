@@ -53,50 +53,31 @@
     if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
 
-  // Helper: read cookie
   function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     return match ? match[2] : '';
-  }
-
-  // Clear phone error on input
-  var phoneInput = document.querySelector('#lead-phone');
-  var phoneError = document.getElementById('phone-error');
-  if (phoneInput && phoneError) {
-    phoneInput.addEventListener('input', function () {
-      phoneError.style.display = 'none';
-      phoneInput.classList.remove('input-error');
-    });
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var nameEl = form.querySelector('#lead-name');
     var emailEl = form.querySelector('#lead-email');
+    var phoneEl = form.querySelector('#lead-phone');
     var name = nameEl && nameEl.value ? nameEl.value.trim() : '';
     var email = emailEl && emailEl.value ? emailEl.value.trim() : '';
+    var phone = phoneEl && phoneEl.value ? phoneEl.value.replace(/\D/g, '') : '';
 
-    // Get phone from intl-tel-input (full E.164 number)
-    var phone = '';
-    if (window.iti) {
-      phone = window.iti.getNumber();
-      // Validate
-      if (!window.iti.isValidNumber()) {
-        if (phoneError) phoneError.style.display = 'block';
-        if (phoneInput) phoneInput.classList.add('input-error');
-        return;
-      }
-    } else if (phoneInput) {
-      phone = phoneInput.value.trim();
-    }
-
-    if (!name || !email) {
+    if (!name || !email || phone.length < 7) {
       if (!name) nameEl && nameEl.focus();
       else if (!email) emailEl && emailEl.focus();
+      else if (phoneEl) phoneEl.focus();
       return;
     }
 
-    // Send to backend
+    // Prepend +1 if 10 digits (US)
+    if (phone.length === 10) phone = '+1' + phone;
+    else if (!phone.startsWith('+')) phone = '+' + phone;
+
     var payload = {
       name: name,
       email: email,
@@ -113,7 +94,6 @@
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        // Fire Meta Pixel events with matching eventId for server dedup
         if (typeof fbq === 'function' && data.eventId) {
           fbq('track', 'Lead', { content_name: 'death-of-ad-manager' }, { eventID: data.eventId });
           fbq('track', 'CompleteRegistration', { content_name: 'death-of-ad-manager' }, { eventID: data.eventId + '-cr' });
@@ -122,7 +102,6 @@
         window.location.href = secondPageUrl + '?p=' + encodeURIComponent(phone);
       })
       .catch(function () {
-        // Still redirect on error
         closeModal();
         window.location.href = secondPageUrl + '?p=' + encodeURIComponent(phone);
       });
