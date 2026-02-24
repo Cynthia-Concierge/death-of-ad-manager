@@ -65,23 +65,35 @@
     var phoneEl = form.querySelector('#lead-phone');
     var name = nameEl && nameEl.value ? nameEl.value.trim() : '';
     var email = emailEl && emailEl.value ? emailEl.value.trim() : '';
-    var phone = phoneEl && phoneEl.value ? phoneEl.value.replace(/\D/g, '') : '';
+    var phone = phoneEl && phoneEl.value ? phoneEl.value.trim() : '';
 
-    if (!name || !email || phone.length < 7) {
-      if (!name) nameEl && nameEl.focus();
-      else if (!email) emailEl && emailEl.focus();
-      else if (phoneEl) phoneEl.focus();
+    if (!name || !email || !phone) {
+      if (!name) { nameEl && nameEl.focus(); return; }
+      if (!email) { emailEl && emailEl.focus(); return; }
+      if (!phone) { phoneEl && phoneEl.focus(); return; }
       return;
     }
 
-    // Prepend +1 if 10 digits (US)
-    if (phone.length === 10) phone = '+1' + phone;
-    else if (!phone.startsWith('+')) phone = '+' + phone;
+    // Save to localStorage
+    try {
+      localStorage.setItem('webinar_lead', JSON.stringify({
+        name: name, email: email, phone: phone, at: new Date().toISOString()
+      }));
+    } catch (err) {}
+
+    // Disable button
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Setting things up...'; }
+
+    // Clean phone - strip non-digits, prepend +1 if 10 digits
+    var cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length === 10) cleanPhone = '+1' + cleanPhone;
+    else if (!cleanPhone.startsWith('+')) cleanPhone = '+' + cleanPhone;
 
     var payload = {
       name: name,
       email: email,
-      phone: phone,
+      phone: cleanPhone,
       source: 'death-of-ad-manager',
       fbc: getCookie('_fbc'),
       fbp: getCookie('_fbp'),
@@ -99,13 +111,20 @@
           fbq('track', 'CompleteRegistration', { content_name: 'death-of-ad-manager' }, { eventID: data.eventId + '-cr' });
         }
         closeModal();
-        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(phone);
+        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
       })
       .catch(function () {
         closeModal();
-        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(phone);
+        window.location.href = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
       });
   });
+
+  // iMessage testimonial scroll carousel
+  var track = document.querySelector('.imessage-scroll-track');
+  var slides = document.querySelectorAll('.imessage-card');
+  if (track && slides.length) {
+    // Touch/scroll-based - no dot nav needed for horizontal scroll
+  }
 
   // Accordion
   document.querySelectorAll('[data-accordion]').forEach(function (btn) {

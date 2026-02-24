@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Watch the masterclass | Cynthia</title>
+  <title>Watch the Masterclass | Cynthia Concierge</title>
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Meta Pixel Code -->
   <script>
@@ -47,17 +47,49 @@
       </div>
 
       <div class="watch-cta">
-        <a href="#" class="btn btn-cta btn-large watch-cta-btn" id="book-call-btn">
-          Schedule a phone call
-        </a>
-        <p class="watch-cta-note">Pick a time that works for you.</p>
+        <div class="onboard-card">
+          <h2 class="onboard-card-title">Ready to see what she can do?</h2>
+
+          <ul class="onboard-checklist">
+            <li><span class="check-icon">&#x2713;</span> A quick 10-minute call where you tell Cynthia about your business, your goals, and the software you already use</li>
+            <li><span class="check-icon">&#x2713;</span> She connects to your tools and starts working immediately &mdash; completely free</li>
+            <li><span class="check-icon">&#x2713;</span> Her goal: provide so much value in 7 days that hiring her full-time is a no-brainer</li>
+          </ul>
+
+          <!-- Primary CTA: Call Cynthia via VAPI -->
+          <a href="tel:+12135518629" class="btn btn-cta btn-large watch-cta-btn" id="call-cynthia-btn">
+            Speak to Cynthia Now<span class="cta-phone">(213) 551-8629</span>
+          </a>
+
+          <div class="watch-cta-divider"><span>or</span></div>
+
+          <!-- Secondary CTA: Calendly -->
+          <button class="btn btn-secondary watch-cta-btn-secondary" id="book-call-btn" onclick="document.getElementById('calendly-modal').classList.add('active')">
+            Prefer to speak to a human?
+          </button>
+        </div>
       </div>
     </div>
   </main>
 
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="calendly-modal-content">
+      <button class="calendly-modal-close" onclick="document.getElementById('calendly-modal').classList.remove('active')">&times;</button>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/cynthia-cynthiaconcierge/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
+    </div>
+  </div>
+
   <footer class="footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p class="footer-text">&copy; 2026 Cynthia Concierge. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
@@ -77,20 +109,22 @@
       }
     }
 
-    // Track page view
     sendEvent('watch_page_viewed');
-
-    // Track video completion (20 min)
     setTimeout(function () { sendEvent('watch_page_completed'); }, 20 * 60 * 1000);
 
-    // Track CTA clicks
+    var callBtn = document.getElementById('call-cynthia-btn');
+    if (callBtn) {
+      callBtn.addEventListener('click', function () {
+        sendEvent('cta_clicked');
+        if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'call-cynthia-click' });
+      });
+    }
+
     var bookBtn = document.getElementById('book-call-btn');
     if (bookBtn) {
       bookBtn.addEventListener('click', function () {
         sendEvent('cta_clicked');
-        if (typeof fbq === 'function') {
-          fbq('track', 'Schedule', { content_name: 'book-call-click' });
-        }
+        if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'calendly-click' });
       });
     }
   })();
