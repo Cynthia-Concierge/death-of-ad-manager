@@ -81,35 +81,69 @@
     }
   })();
 
-  // Phone auto-formatter: (555) 123-4567
+  // Phone: US mode (default) vs international mode
   var phoneInput = document.getElementById('lead-phone');
   var phoneError = document.getElementById('phone-error');
+  var intlToggle = document.getElementById('intl-toggle');
+  var isIntlMode = false;
+
+  if (intlToggle) {
+    intlToggle.addEventListener('click', function () {
+      isIntlMode = !isIntlMode;
+      if (isIntlMode) {
+        this.textContent = 'US number?';
+        phoneInput.value = '';
+        phoneInput.placeholder = '+44 7911 123456';
+        phoneInput.maxLength = 20;
+      } else {
+        this.textContent = 'Outside the US?';
+        phoneInput.value = '';
+        phoneInput.placeholder = '(555) 000-0000';
+        phoneInput.maxLength = 14;
+      }
+      if (phoneError) { phoneError.textContent = ''; phoneInput.classList.remove('input-error'); }
+      phoneInput.focus();
+    });
+  }
+
+  // US auto-formatter: (555) 123-4567
   if (phoneInput) {
     phoneInput.addEventListener('input', function () {
-      var digits = this.value.replace(/\D/g, '').slice(0, 10);
-      var formatted = '';
-      if (digits.length > 0) formatted = '(' + digits.slice(0, 3);
-      if (digits.length >= 3) formatted += ') ';
-      if (digits.length > 3) formatted += digits.slice(3, 6);
-      if (digits.length >= 6) formatted += '-';
-      if (digits.length > 6) formatted += digits.slice(6, 10);
-      this.value = formatted;
+      if (isIntlMode) {
+        // International: allow digits, +, spaces, dashes — just clean up
+        this.value = this.value.replace(/[^\d+\-\s()]/g, '');
+      } else {
+        var digits = this.value.replace(/\D/g, '').slice(0, 10);
+        var formatted = '';
+        if (digits.length > 0) formatted = '(' + digits.slice(0, 3);
+        if (digits.length >= 3) formatted += ') ';
+        if (digits.length > 3) formatted += digits.slice(3, 6);
+        if (digits.length >= 6) formatted += '-';
+        if (digits.length > 6) formatted += digits.slice(6, 10);
+        this.value = formatted;
+      }
       // Clear error on edit
       if (phoneError) { phoneError.textContent = ''; phoneInput.classList.remove('input-error'); }
     });
   }
 
-  // Validate phone: must be 10 digits, no obvious fakes
+  // Validate phone
   function validatePhone(raw) {
     var digits = raw.replace(/\D/g, '');
+
+    if (isIntlMode) {
+      // International: must start with + and have 7-15 digits
+      if (!raw.trim().startsWith('+')) return 'International numbers must start with + (e.g. +44).';
+      if (digits.length < 7 || digits.length > 15) return 'Please enter a valid international phone number.';
+      if (/^(\d)\1+$/.test(digits)) return 'Please enter a real phone number.';
+      return '';
+    }
+
+    // US validation
     if (digits.length !== 10) return 'Please enter a valid 10-digit phone number.';
-    // Reject all same digit (1111111111, 0000000000, etc)
     if (/^(\d)\1{9}$/.test(digits)) return 'Please enter a real phone number.';
-    // Reject sequential (1234567890, 0987654321)
     if (digits === '1234567890' || digits === '0987654321') return 'Please enter a real phone number.';
-    // Reject 555 area code (fictional)
     if (digits.slice(0, 3) === '555') return 'Please enter a real phone number.';
-    // Area code can't start with 0 or 1
     if (digits[0] === '0' || digits[0] === '1') return 'Please enter a valid US phone number.';
     return '';
   }
@@ -156,10 +190,15 @@
     // Disable all inputs so user can't double-submit
     form.querySelectorAll('input').forEach(function (el) { el.disabled = true; });
 
-    // Clean phone - strip non-digits, prepend +1 if 10 digits
-    var cleanPhone = phone.replace(/\D/g, '');
-    if (cleanPhone.length === 10) cleanPhone = '+1' + cleanPhone;
-    else if (!cleanPhone.startsWith('+')) cleanPhone = '+' + cleanPhone;
+    // Clean phone — handle US vs international
+    var cleanPhone;
+    if (isIntlMode) {
+      // Keep the + prefix, strip everything else
+      cleanPhone = '+' + phone.replace(/\D/g, '');
+    } else {
+      var digits = phone.replace(/\D/g, '');
+      cleanPhone = '+1' + digits;
+    }
 
     var redirectUrl = secondPageUrl + '?p=' + encodeURIComponent(cleanPhone);
 
