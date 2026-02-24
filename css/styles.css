@@ -339,6 +339,29 @@ a {
   max-width: 520px;
   line-height: 1.6;
 }
+.hero-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hero-checklist li {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding-left: 28px;
+  position: relative;
+}
+.hero-checklist li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
 .hero-trust {
   margin: 0;
   font-size: 14px;
