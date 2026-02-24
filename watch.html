@@ -4,12 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Watch the masterclass | Cynthia</title>
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '4262093707270721');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', { content_name: 'watch-training-page' });
+  </script>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4262093707270721&ev=PageView&noscript=1"
+  /></noscript>
   <header class="header">
     <div class="header-inner">
       <a href="index.html" class="logo">CYNTHIA</a>
@@ -24,19 +44,9 @@
           <p>Replace this with your video embed</p>
           <p class="watch-video-hint">e.g. YouTube iframe, Vimeo, or &lt;video&gt; source</p>
         </div>
-        <!-- Example YouTube embed (uncomment and set your video ID):
-        <iframe
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=0"
-          title="Masterclass"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        -->
       </div>
 
       <div class="watch-cta">
-        <!-- Set href to your Calendly, Cal.com, or booking page URL -->
         <a href="#" class="btn btn-cta btn-large watch-cta-btn" id="book-call-btn">
           Schedule a phone call
         </a>
@@ -50,5 +60,40 @@
       <p class="footer-text">&copy; 2026 Cynthia Concierge. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Tracking beacons -->
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var phone = params.get('p') || '';
+
+    function sendEvent(type) {
+      var url = 'https://app.cynthiaconcierge.com/funnel/event';
+      var body = JSON.stringify({ phone: phone, event: type });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
+      } else {
+        fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function () {});
+      }
+    }
+
+    // Track page view
+    sendEvent('watch_page_viewed');
+
+    // Track video completion (20 min)
+    setTimeout(function () { sendEvent('watch_page_completed'); }, 20 * 60 * 1000);
+
+    // Track CTA clicks
+    var bookBtn = document.getElementById('book-call-btn');
+    if (bookBtn) {
+      bookBtn.addEventListener('click', function () {
+        sendEvent('cta_clicked');
+        if (typeof fbq === 'function') {
+          fbq('track', 'Schedule', { content_name: 'book-call-click' });
+        }
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
