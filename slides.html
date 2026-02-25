@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Me Install an AI Employee &mdash; Live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-elevated: #12121a;
+      --bg-card: #16161f;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(0,212,255,0.25);
+      --text: #f0f0f5;
+      --text-muted: #8b8b9e;
+      --accent: #00d4ff;
+      --accent-soft: rgba(0,212,255,0.12);
+      --accent-glow: rgba(0,212,255,0.2);
+      --check: #00c9a7;
+      --red: #ff4d6a;
+      --orange: #ff6b35;
+      --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Slide container ── */
+    .deck { width: 100%; height: 100%; position: relative; }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(30px);
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+    .slide.exiting {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    /* ── Typography ── */
+    .slide-label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .slide h1 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 800;
+      line-height: 1.08;
+      text-align: center;
+      max-width: 950px;
+    }
+    .slide h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.12;
+      text-align: center;
+      max-width: 900px;
+    }
+    .slide .accent { color: var(--accent); }
+    .slide .red { color: var(--red); }
+    .slide .green { color: var(--check); }
+    .slide .orange { color: var(--orange); }
+
+    .slide p {
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 700px;
+      margin-top: 24px;
+    }
+
+    /* ── Big number / stat ── */
+    .big-number { font-size: 120px; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 28px; color: var(--text-muted); margin-top: 8px; }
+
+    /* ── Bullet lists ── */
+    .bullets {
+      list-style: none;
+      text-align: left;
+      margin-top: 32px;
+      max-width: 720px;
+      width: 100%;
+    }
+    .bullets li {
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.5;
+      padding: 12px 0;
+      padding-left: 36px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .bullets li:last-child { border-bottom: none; }
+    .bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 18px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .bullets.check li::before {
+      content: '\2713';
+      width: auto; height: auto;
+      border-radius: 0;
+      background: none;
+      color: var(--check);
+      font-weight: 700;
+      font-size: 20px;
+      top: 12px;
+    }
+    .bullets.green li::before { background: var(--check); }
+
+    /* ── Section divider ── */
+    .section-num {
+      font-size: 140px;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.1;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* ── Demo label ── */
+    .demo-label {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--check);
+      background: rgba(0,201,167,0.12);
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Step cards ── */
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      max-width: 850px;
+      width: 100%;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: left;
+    }
+    .step-card .step-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      font-size: 16px;
+      color: var(--text-muted);
+      text-align: left;
+      margin-top: 0;
+    }
+
+    /* ── Stats row ── */
+    .stats-row {
+      display: flex;
+      gap: 56px;
+      margin-top: 44px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .stat { text-align: center; }
+    .stat .stat-value { font-size: 56px; font-weight: 800; color: var(--accent); }
+    .stat .stat-desc { font-size: 16px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ── Callout / quote ── */
+    .callout {
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 600;
+      font-style: italic;
+      text-align: center;
+      max-width: 750px;
+      line-height: 1.35;
+      margin-top: 32px;
+      color: var(--text);
+    }
+    .callout .accent { font-style: normal; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,201,167,0.1));
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 40px 60px;
+      text-align: center;
+      margin-top: 36px;
+      box-shadow: 0 0 60px var(--accent-glow);
+    }
+    .cta-box h3 { font-size: 30px; margin-bottom: 12px; }
+    .cta-box p { font-size: 20px; color: var(--text-muted); text-align: center; margin-top: 0; }
+
+    /* ── Progress bar ── */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+      z-index: 100;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .counter {
+      position: fixed;
+      bottom: 20px; right: 28px;
+      font-size: 14px;
+      color: var(--text-muted);
+      z-index: 100;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav-hint {
+      position: fixed;
+      bottom: 20px; left: 28px;
+      font-size: 13px;
+      color: #5c5c6e;
+      z-index: 100;
+      opacity: 0.6;
+    }
+
+    /* ── Subtle glow ── */
+    .slide::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* ── Fade-in animation ── */
+    .fi { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .slide.active .fi { opacity: 1; transform: translateY(0); }
+    .slide.active .fi:nth-child(2) { transition-delay: 0.12s; }
+    .slide.active .fi:nth-child(3) { transition-delay: 0.24s; }
+    .slide.active .fi:nth-child(4) { transition-delay: 0.36s; }
+    .slide.active .fi:nth-child(5) { transition-delay: 0.48s; }
+
+    @media (max-width: 768px) {
+      .slide { padding: 40px 28px; }
+      .stats-row { gap: 32px; }
+      .step-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 1: TITLE                                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide active" data-slide>
+    <span class="slide-label fi">Live Training</span>
+    <h1 class="fi">Watch Me Install an <span class="accent">AI Employee</span> &mdash; Live</h1>
+    <p class="fi">Everything you're about to see is real. No mockups. No pre-recorded demos.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 2: SET EXPECTATIONS                       -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <h2 class="fi">In the next <span class="accent">30&ndash;40 minutes</span>, you'll watch:</h2>
+    <ul class="bullets check fi">
+      <li>An ad get created from a single sentence</li>
+      <li>A video get generated &mdash; no editor, no freelancer</li>
+      <li>It upload into Ads Manager</li>
+      <li>The campaign go live</li>
+      <li>A lead come in</li>
+      <li>The AI respond in under 60 seconds</li>
+      <li>And a call get booked</li>
+    </ul>
+    <p class="fi" style="font-weight:600; color:var(--text);">In real time.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 3: SECTION — Creating the Ad              -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="section-num">01</span>
+    <span class="slide-label fi">Demo Section 1</span>
+    <h1 class="fi"><span class="accent">Creating</span> the Ad</h1>
+    <p class="fi">From a single prompt to a finished creative.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 4: Script Creation                        -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="demo-label fi">Step 1 &mdash; Script</span>
+    <h2 class="fi">One sentence in. Full ad script out.</h2>
+    <div class="step-grid fi">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Type a prompt</h3>
+        <p>"Create an ad for a solar company targeting homeowners."</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>AI generates everything</h3>
+        <p>Hook options. Full script. Headline variations. Done.</p>
+      </div>
+    </div>
+    <p class="fi" style="color:var(--check); font-weight:600; margin-top:28px;">Don't overtalk it. Let them watch. &rarr;</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 5: Video Creation                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="demo-label fi">Step 2 &mdash; Video</span>
+    <h2 class="fi">Avatar generated. Scenes built.<br><span class="accent">Ad rendered.</span></h2>
+    <ul class="bullets green fi">
+      <li>AI avatar created from script</li>
+      <li>Visual scenes assembled automatically</li>
+      <li>Final video rendered and ready to publish</li>
+    </ul>
+    <div class="callout fi">"This would normally take a freelancer <span class="accent">2&ndash;3 days</span>."</div>
+    <p class="fi" style="font-size:18px; color:#5c5c6e; margin-top:16px;">Let silence sell it.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 6: SECTION — Launching Ads                -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="section-num">02</span>
+    <span class="slide-label fi">Demo Section 2</span>
+    <h1 class="fi"><span class="accent">Launching</span> Ads</h1>
+    <p class="fi">Campaign created. Targeting set. Budget assigned. Ad uploaded.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 7: Ads Manager                            -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="demo-label fi">Ads Manager</span>
+    <h2 class="fi">Campaign live. Without opening<br>Ads Manager <span class="accent">once</span>.</h2>
+    <ul class="bullets check fi">
+      <li>Campaign structure created</li>
+      <li>Audience targeting configured</li>
+      <li>Budget allocated</li>
+      <li>Creative uploaded &amp; published</li>
+    </ul>
+    <div class="callout fi">"I didn't open Ads Manager once."</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 8: SECTION — Optimization                 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="section-num">03</span>
+    <span class="slide-label fi">Demo Section 3</span>
+    <h1 class="fi"><span class="accent">Optimization</span></h1>
+    <p class="fi">The AI manages your spend while you sleep.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 9: Optimization Details                   -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <h2 class="fi">It doesn't just launch. It <span class="accent">manages</span>.</h2>
+    <div class="step-grid fi">
+      <div class="step-card">
+        <div class="step-num">&darr;</div>
+        <h3>Analyzes CPL</h3>
+        <p>Monitors cost-per-lead across every ad set in real time.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">&times;</div>
+        <h3>Pauses losers</h3>
+        <p>Kills underperformers before they drain budget.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">&uarr;</div>
+        <h3>Scales winners</h3>
+        <p>Increases spend on what's actually converting.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">&#9993;</div>
+        <h3>Sends report</h3>
+        <p>You get a summary. Not a spreadsheet &mdash; a decision.</p>
+      </div>
+    </div>
+    <p class="fi" style="font-size:18px; color:#5c5c6e; margin-top:20px;">Don't lecture. Just narrate what it's doing.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 10: SECTION — Lead Follow-Up              -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="section-num">04</span>
+    <span class="slide-label fi">Demo Section 4</span>
+    <h1 class="fi">Lead <span class="accent">Follow-Up</span></h1>
+    <p class="fi">This is the emotional peak.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 11: Lead Response                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="demo-label fi">The Money Slide</span>
+    <h2 class="fi">Lead comes in. Response in<br><span class="accent">under 60 seconds</span>.</h2>
+    <ul class="bullets check fi">
+      <li>Notification received</li>
+      <li>AI responds instantly &mdash; personalized, not canned</li>
+      <li>Lead gets qualified through conversation</li>
+      <li>Booking link sent automatically</li>
+    </ul>
+    <p class="fi" style="font-weight:600; color:var(--text); margin-top:24px;">
+      Switch to calendar. Show call booked. <span class="accent">Pause. Let it sink in.</span>
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 12: Quick Proof                           -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="slide-label fi">Proof</span>
+    <h2 class="fi">This isn't theoretical.</h2>
+    <div class="stats-row fi">
+      <div class="stat">
+        <div class="stat-value">&lt;60s</div>
+        <div class="stat-desc">Average response time</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">24/7</div>
+        <div class="stat-desc">Runs while you sleep</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-desc">Roles replaced</div>
+      </div>
+    </div>
+    <p class="fi" style="margin-top:36px;">
+      Show 2&ndash;3 iMessage screenshots. CPL drop example. "Booked calls while I was asleep."
+    </p>
+    <p class="fi" style="font-size:18px; color:#5c5c6e;">No long testimonial wall. Just reinforcement.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 13: What Actually Happened                -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="slide-label fi">Zoom Out</span>
+    <h2 class="fi">What you just watched:</h2>
+    <ul class="bullets fi">
+      <li>Ad creation</li>
+      <li>Video production</li>
+      <li>Campaign launch</li>
+      <li>Autonomous optimization</li>
+      <li>Instant lead follow-up</li>
+      <li>Call booking</li>
+    </ul>
+    <div class="callout fi">That's <span class="accent">3 roles</span> replaced.</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 14: What You Need                         -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="slide-label fi">Requirements</span>
+    <h2 class="fi">What you need:</h2>
+    <div class="step-grid fi" style="max-width:750px;">
+      <div class="step-card" style="text-align:center;">
+        <div class="step-num">1</div>
+        <h3>An offer</h3>
+        <p>Something people want to buy.</p>
+      </div>
+      <div class="step-card" style="text-align:center;">
+        <div class="step-num">2</div>
+        <h3>A calendar</h3>
+        <p>Where booked calls land.</p>
+      </div>
+      <div class="step-card" style="text-align:center;">
+        <div class="step-num">3</div>
+        <h3>Ad budget</h3>
+        <p>Fuel for the machine.</p>
+      </div>
+    </div>
+    <p class="fi" style="font-weight:700; font-size:24px; color:var(--text); margin-top:36px;">That's it. No tech overwhelm.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 15: CTA                                   -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="slide" data-slide>
+    <span class="slide-label fi">Next Step</span>
+    <h1 class="fi">Want this installed in<br><span class="accent">your business</span>?</h1>
+    <p class="fi">The next step is simple.</p>
+    <div class="cta-box fi">
+      <h3>Book a call. Apply. Get started.</h3>
+      <p>No hype. Just results.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Progress bar -->
+<div class="progress" id="progress"></div>
+<div class="counter" id="counter">1 / 15</div>
+<div class="nav-hint">Arrow keys or click &bull; F for fullscreen</div>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('[data-slide]');
+  var total = slides.length;
+  var progress = document.getElementById('progress');
+  var counter = document.getElementById('counter');
+  var current = 0;
+
+  function goTo(n) {
+    if (n < 0 || n >= total || n === current) return;
+    var prev = slides[current];
+    var next = slides[n];
+    prev.classList.remove('active');
+    prev.classList.add('exiting');
+    setTimeout(function() { prev.classList.remove('exiting'); }, 500);
+    next.classList.add('active');
+    current = n;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('a, button')) return;
+    if (e.clientX > window.innerWidth / 2) goTo(current + 1);
+    else goTo(current - 1);
+  });
+
+  var touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].clientX; });
+  document.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  progress.style.width = (1 / total * 100) + '%';
+})();
+</script>
+
+</body>
+</html>
