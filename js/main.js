@@ -107,13 +107,19 @@
   }
 
   // US auto-formatter: (555) 123-4567
+  var prevPhoneDigits = '';
   if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
+    phoneInput.addEventListener('input', function (e) {
       if (isIntlMode) {
         // International: allow digits, +, spaces, dashes — just clean up
         this.value = this.value.replace(/[^\d+\-\s()]/g, '');
       } else {
         var digits = this.value.replace(/\D/g, '').slice(0, 10);
+        // On deletion: if formatter would re-add chars the user just deleted, drop a digit
+        var isDelete = e.inputType && e.inputType.indexOf('delete') === 0;
+        if (isDelete && digits.length >= prevPhoneDigits.length && prevPhoneDigits.length > 0) {
+          digits = digits.slice(0, -1);
+        }
         var formatted = '';
         if (digits.length > 0) formatted = '(' + digits.slice(0, 3);
         if (digits.length >= 3) formatted += ') ';
@@ -121,6 +127,7 @@
         if (digits.length >= 6) formatted += '-';
         if (digits.length > 6) formatted += digits.slice(6, 10);
         this.value = formatted;
+        prevPhoneDigits = digits;
       }
       // Clear error on edit
       if (phoneError) { phoneError.textContent = ''; phoneInput.classList.remove('input-error'); }
