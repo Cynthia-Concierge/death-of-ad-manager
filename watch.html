@@ -48,12 +48,17 @@
 
   <main class="watch-page">
     <div class="watch-page-inner">
-      <!-- Replace the div below with your video embed (YouTube, Vimeo, or HTML5 video) -->
       <div class="watch-video-wrap">
-        <div class="watch-video-placeholder">
-          <p>Replace this with your video embed</p>
-          <p class="watch-video-hint">e.g. YouTube iframe, Vimeo, or &lt;video&gt; source</p>
-        </div>
+        <video
+          id="training-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="https://app.cynthiaconcierge.com/media/webinar/training-poster.jpg"
+        >
+          <source src="https://app.cynthiaconcierge.com/media/webinar/training.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div class="watch-cta">
