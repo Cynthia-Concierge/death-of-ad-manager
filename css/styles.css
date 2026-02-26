@@ -458,6 +458,11 @@ a {
   object-fit: cover;
   pointer-events: none;
 }
+.video-thumb-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .video-thumb-overlay {
   position: absolute;
   top: 0;
