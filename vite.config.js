@@ -12,6 +12,7 @@ export default defineConfig({
         privacy: resolve(__dirname, 'privacy.html'),
         terms: resolve(__dirname, 'terms.html'),
         catering: resolve(__dirname, 'catering.html'),
+        'catering-thank-you': resolve(__dirname, 'catering-thank-you.html'),
       },
     },
   },
