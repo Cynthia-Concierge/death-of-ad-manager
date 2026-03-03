@@ -1,0 +1,114 @@
+/* ----- Catering landing page ----- */
+
+.catering-hero {
+  padding: 56px 24px 40px;
+  text-align: center;
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 60%);
+}
+
+.catering-headline {
+  margin: 0 0 20px;
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.catering-subhead {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ----- Two-column layout ----- */
+.catering-content {
+  padding: 48px 24px 96px;
+}
+
+.catering-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .catering-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Form panel ----- */
+.catering-form-wrap {
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-subtitle {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ----- Success panel ----- */
+.success-panel {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--check);
+  border-radius: 50%;
+}
+
+/* ----- Calendly panel ----- */
+.catering-calendly-wrap {
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.calendly-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.calendly-subtitle {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.calendly-inline-widget {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}

@@ -11,6 +11,7 @@ export default defineConfig({
         slides: resolve(__dirname, 'slides.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         terms: resolve(__dirname, 'terms.html'),
+        catering: resolve(__dirname, 'catering.html'),
       },
     },
   },
