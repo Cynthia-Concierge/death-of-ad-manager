@@ -1,22 +1,22 @@
 :root {
-  --bg: #0a0a0f;
-  --bg-elevated: #12121a;
-  --bg-card: #16161f;
-  --bg-card-hover: #1a1a24;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-accent: rgba(0, 212, 255, 0.25);
-  --text: #f0f0f5;
-  --text-muted: #8b8b9e;
-  --text-dim: #5c5c6e;
-  --accent: #00d4ff;
-  --accent-hover: #33ddff;
-  --accent-soft: rgba(0, 212, 255, 0.12);
-  --accent-glow: rgba(0, 212, 255, 0.2);
-  --check: #00c9a7;
-  --font: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #FFFBF7;
+  --bg-elevated: #FFF7F0;
+  --bg-card: #FFFDFB;
+  --bg-card-hover: #FFF7F0;
+  --border: #F0E6DD;
+  --border-accent: rgba(192, 48, 48, 0.2);
+  --text: #1F1F1F;
+  --text-muted: #6B5B50;
+  --text-dim: #A89888;
+  --accent: #C03030;
+  --accent-hover: #A82828;
+  --accent-soft: rgba(192, 48, 48, 0.07);
+  --accent-glow: rgba(192, 48, 48, 0.12);
+  --check: #C03030;
+  --font: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --radius: 10px;
   --radius-sm: 6px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow: 0 4px 24px rgba(120, 80, 60, 0.08);
   --shadow-glow: 0 0 40px var(--accent-glow);
 }
 *,
@@ -75,7 +75,7 @@ a {
 }
 .btn-cta {
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
 }
 .btn-cta:hover {
   background: var(--accent-hover);
@@ -93,7 +93,7 @@ a {
   margin-top: 8px;
   padding: 16px;
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -112,8 +112,8 @@ a {
   display: inline-block;
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-top-color: var(--bg);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
   vertical-align: middle;
@@ -151,7 +151,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #000000bf;
+  background: rgba(31, 31, 31, 0.6);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
@@ -161,12 +161,12 @@ a {
   max-width: 420px;
   margin: auto;
   padding: 36px;
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow:
     var(--shadow),
-    0 0 0 1px #ffffff08;
+    0 0 0 1px rgba(0, 0, 0, 0.03);
 }
 @media (max-width: 500px) {
   .modal {
@@ -290,7 +290,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #0a0a0fd9;
+  background: #fffbf7e6;
   border-bottom: 1px solid var(--border);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -427,8 +427,8 @@ a {
 .video-thumb {
   position: relative;
   aspect-ratio: 16 / 10;
-  background: #14161c;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1a1a1a;
+  border: 1px solid #F0E6DD;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -439,10 +439,10 @@ a {
 }
 .video-thumb:hover {
   transform: translateY(-4px);
-  border-color: #00d4ff59;
+  border-color: rgba(192, 48, 48, 0.35);
   box-shadow:
-    0 12px 40px #00000080,
-    0 0 0 1px #00d4ff26,
+    0 12px 40px rgba(120, 80, 60, 0.15),
+    0 0 0 1px rgba(192, 48, 48, 0.15),
     0 0 48px var(--accent-glow);
 }
 .video-thumb:focus-visible {
@@ -469,7 +469,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(180deg, #14161c44, #14161ccc);
+  background: linear-gradient(180deg, #1a1a1a44, #1a1a1acc);
   pointer-events: none;
 }
 .video-thumb-inner {
@@ -492,7 +492,7 @@ a {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #fffffff2;
+  color: #ffffffee;
   text-transform: uppercase;
 }
 .video-ref {
@@ -530,13 +530,13 @@ a {
 .play-icon {
   width: 88px;
   height: 88px;
-  background: #21a5e0;
+  background: #C03030;
   border-radius: 50%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 #21a5e080;
+  box-shadow: 0 0 rgba(192, 48, 48, 0.5);
   transition:
     transform 0.25s ease,
     background 0.25s,
@@ -544,10 +544,10 @@ a {
 }
 .video-thumb:hover .play-icon {
   transform: scale(1.08);
-  background: #2bb3f0;
+  background: #A82828;
   box-shadow:
-    0 0 0 8px #21a5e040,
-    0 8px 32px #21a5e059;
+    0 0 0 8px rgba(192, 48, 48, 0.25),
+    0 8px 32px rgba(192, 48, 48, 0.35);
 }
 .play-triangle {
   width: 0;
@@ -555,7 +555,7 @@ a {
   margin-left: 6px;
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
-  border-left: 24px solid #0a0a0f;
+  border-left: 24px solid #fff;
 }
 .play-text {
   font-size: 14px;
@@ -571,7 +571,7 @@ a {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #21a5e0;
+  color: #C03030;
   opacity: 0.95;
 }
 @media (max-width: 500px) {
@@ -721,12 +721,12 @@ a {
   width: 100%;
   background: #000;
   border-radius: 32px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
   box-shadow:
-    0 8px 32px #0009,
-    0 0 0 1px #ffffff0d,
-    0 0 60px #00d4ff14;
+    0 8px 32px rgba(120, 80, 60, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 0 60px rgba(192, 48, 48, 0.06);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -734,9 +734,9 @@ a {
 .phone-frame:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 16px 48px #000000b3,
-    0 0 0 1px #00d4ff26,
-    0 0 80px #00d4ff1f;
+    0 16px 48px rgba(120, 80, 60, 0.18),
+    0 0 0 1px rgba(192, 48, 48, 0.15),
+    0 0 80px rgba(192, 48, 48, 0.08);
 }
 .phone-frame img {
   width: 100%;
@@ -974,7 +974,7 @@ a {
   height: 14px;
   background: var(--check);
   border-radius: 4px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: 10px;
   background-position: center;
   background-repeat: no-repeat;
@@ -1186,12 +1186,12 @@ a {
   aspect-ratio: 9 / 17.5;
   background: #000;
   border-radius: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.12);
+  border: 3px solid rgba(0, 0, 0, 0.12);
   overflow: hidden;
   box-shadow:
-    0 8px 40px #000000b3,
-    0 0 0 1px #ffffff0f,
-    0 0 60px #00d4ff0f;
+    0 8px 40px rgba(120, 80, 60, 0.18),
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 0 60px rgba(192, 48, 48, 0.05);
   display: flex;
   flex-direction: column;
 }
@@ -1655,20 +1655,18 @@ a {
   padding: 0 16px;
 }
 .onboard-card {
-  background: #ffffff0f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 40px 36px 36px;
   max-width: 480px;
   width: 100%;
   text-align: center;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
 }
 .onboard-card-title {
   font-size: 22px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
   margin: 0 0 24px;
 }
 .onboard-checklist {
@@ -1685,13 +1683,13 @@ a {
   gap: 12px;
   font-size: 15px;
   line-height: 1.5;
-  color: #fffc;
+  color: var(--text-muted);
 }
 .check-icon {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  background: #22c55e;
+  background: var(--accent);
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -1720,7 +1718,7 @@ a {
   align-items: center;
   gap: 16px;
   margin: 20px 0;
-  color: #ffffff59;
+  color: var(--text-dim);
   font-size: 14px;
 }
 .watch-cta-divider:before,
@@ -1728,12 +1726,12 @@ a {
   content: "";
   flex: 1;
   height: 1px;
-  background: #ffffff1f;
+  background: var(--border);
 }
 .watch-cta-btn-secondary {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff80;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
   padding: 12px 28px;
   border-radius: 8px;
   font-size: 15px;
@@ -1742,8 +1740,8 @@ a {
   width: 100%;
 }
 .watch-cta-btn-secondary:hover {
-  border-color: #ffffff4d;
-  color: #fffc;
+  border-color: var(--border-accent);
+  color: var(--text);
 }
 .calendly-modal-overlay {
   display: none;
@@ -1753,7 +1751,7 @@ a {
   bottom: 0;
   left: 0;
   z-index: 9999;
-  background: #000000bf;
+  background: rgba(31, 31, 31, 0.6);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   align-items: center;
