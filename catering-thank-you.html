@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Confirmed | Cynthia Catering Audit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '4262093707270721');
+  fbq('track', 'PageView');
+  fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+  </script>
+  <!-- End Meta Pixel Code -->
+  <style>
+    .ty-hero {
+      padding: 64px 24px 40px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 60%);
+    }
+    .ty-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .ty-headline {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .ty-subtext {
+      margin: 0 auto;
+      max-width: 560px;
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .ty-section {
+      padding: 48px 24px;
+    }
+    .ty-section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .ty-section-title {
+      margin: 0 0 24px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .ty-questions {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ty-question {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .ty-question-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 6px;
+    }
+    .ty-question-hint {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .ty-case-study {
+      background: var(--bg-elevated);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+    .ty-case-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .ty-before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    @media (max-width: 540px) {
+      .ty-before-after { grid-template-columns: 1fr; }
+    }
+    .ty-ba-col h4 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .ty-ba-col.before h4 { color: var(--text-muted); }
+    .ty-ba-col.after h4 { color: var(--accent); }
+    .ty-ba-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ty-ba-col ul li {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+      padding-left: 22px;
+      position: relative;
+    }
+    .ty-ba-col.before ul li::before {
+      content: "\2717";
+      position: absolute;
+      left: 0;
+      color: var(--text-dim);
+    }
+    .ty-ba-col.after ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .ty-agenda {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ty-agenda li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .ty-agenda li::before {
+      content: "\2713";
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4262093707270721&ev=PageView&noscript=1"
+  /></noscript>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo"><span class="logo-mark">&#9671;</span> CYNTHIA</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Confirmation -->
+    <section class="ty-hero">
+      <div class="container">
+        <div class="ty-check">&#10003;</div>
+        <h1 class="ty-headline">You're Confirmed. Here's What Happens Next.</h1>
+        <p class="ty-subtext">
+          Before your audit call, take 5 minutes to talk to Cynthia &mdash; your AI concierge. She'll learn your business, your tools, and your pain points so we can skip the small talk and show up with a real plan ready to go.
+        </p>
+      </div>
+    </section>
+
+    <!-- Step 1: Call Cynthia -->
+    <section class="ty-section">
+      <div class="ty-section-inner">
+        <h2 class="ty-section-title">Step 1: Call Cynthia Right Now</h2>
+        <p style="margin: 0 0 20px; font-size: 16px; color: var(--text-muted); line-height: 1.6;">
+          Cynthia is your AI concierge &mdash; and she's ready to talk right now. In a quick 5-minute conversation, she'll learn everything about your catering business so that by the time we hop on the audit call, we already have a real plan built for you.
+        </p>
+        <p style="margin: 0 0 24px; font-size: 15px; color: var(--text-muted); line-height: 1.6;">
+          Here's what the conversation looks like:
+        </p>
+        <ul class="ty-questions">
+          <li class="ty-question">
+            <p class="ty-question-label">Quick intro &mdash; your name, what you do, and how to reach you</p>
+            <p class="ty-question-hint">Takes about 30 seconds. She just needs the basics to set up your profile.</p>
+          </li>
+          <li class="ty-question">
+            <p class="ty-question-label">Your business &mdash; how long you've been running, team size, and biggest pain point</p>
+            <p class="ty-question-hint">This is where she starts to understand what's actually slowing you down.</p>
+          </li>
+          <li class="ty-question">
+            <p class="ty-question-label">Your tools &mdash; what software you use day to day</p>
+            <p class="ty-question-hint">CRM, email, calendar, accounting, social media &mdash; she'll figure out what she can plug into.</p>
+          </li>
+          <li class="ty-question">
+            <p class="ty-question-label">Wrap-up &mdash; immediate priorities and what to tackle first</p>
+            <p class="ty-question-hint">She'll summarize everything and text you a personalized plan with your top next steps.</p>
+          </li>
+        </ul>
+        <p style="margin: 24px 0 0; font-size: 14px; color: var(--text-dim); line-height: 1.6; text-align: center;">
+          It's a real conversation &mdash; not a phone tree. Just talk to her like you would a new team member.
+        </p>
+        <div style="text-align: center; margin-top: 28px;">
+          <a href="tel:+12135518629" class="btn btn-cta btn-large" style="font-size: 18px; padding: 16px 40px;">
+            Call Cynthia Now &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study -->
+    <section class="ty-section" style="padding-top: 0;">
+      <div class="ty-section-inner">
+        <div class="ty-case-study">
+          <span class="ty-case-label">Case Study</span>
+          <h3 style="margin: 0 0 4px; font-size: 19px; font-weight: 700; color: var(--text);">
+            How a Catering Company Recovered $14K/mo in Lost Bookings
+          </h3>
+          <p style="margin: 0 0 0; font-size: 15px; color: var(--text-muted); line-height: 1.6;">
+            They were getting 40+ inquiries a month but only booking 12. The problem wasn't demand &mdash; it was response time and follow-up.
+          </p>
+          <div class="ty-before-after">
+            <div class="ty-ba-col before">
+              <h4>Before</h4>
+              <ul>
+                <li>6&ndash;8 hour average response time</li>
+                <li>No follow-up on unconverted quotes</li>
+                <li>Inquiries lost in email and voicemail</li>
+                <li>12 bookings/month from 40+ leads</li>
+              </ul>
+            </div>
+            <div class="ty-ba-col after">
+              <h4>After</h4>
+              <ul>
+                <li>Under 2 minute response time, 24/7</li>
+                <li>Automated 3-touch follow-up sequence</li>
+                <li>Every inquiry captured and tracked</li>
+                <li>27 bookings/month from the same lead volume</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call Agenda -->
+    <section class="ty-section" style="padding-top: 0;">
+      <div class="ty-section-inner">
+        <h2 class="ty-section-title">Step 2: Your Audit Call</h2>
+        <p style="margin: 0 0 20px; font-size: 16px; color: var(--text-muted); line-height: 1.6;">
+          Because Cynthia already knows your business, we skip the small talk and jump straight into your plan:
+        </p>
+        <ul class="ty-agenda">
+          <li>Review what Cynthia learned about your inquiry flow and where leads are dropping off</li>
+          <li>Show you a live demo of how AI would handle a real catering inquiry for your business</li>
+          <li>Map out which tools Cynthia can connect to &mdash; based on what you already told her</li>
+          <li>Give you a clear next step &mdash; whether that's working with us or implementing on your own</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">&copy; Cynthia Concierge. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
