@@ -32,7 +32,6 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '4262093707270721');
   fbq('track', 'PageView');
-  fbq('track', 'Lead', { content_name: 'catering-report-download' });
   </script>
   <!-- End Meta Pixel Code -->
   <style>
@@ -253,11 +252,10 @@
   <script>
   window.addEventListener('message', function(e) {
     if (e.data && e.data.event === 'calendly.event_scheduled') {
-      if (typeof fbq === 'function') {
+      if (typeof fbq === 'function' && !window.__scheduleTracked) {
+        window.__scheduleTracked = true;
         fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
       }
-      // Could redirect to a final confirmation page if needed
-      // window.location.href = '/catering-booked';
     }
   });
   </script>
