@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Catering Revenue Leak Report | Cynthia</title>
+  <title>Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <!-- Open Graph -->
-  <meta property="og:title" content="Free AI Revenue Audit for Catering Companies | Cynthia" />
-  <meta property="og:description" content="See exactly where AI could increase your catering bookings and recover lost revenue. Free audit — no strings attached." />
+  <meta property="og:title" content="Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia" />
+  <meta property="og:description" content="Get the free report showing where catering businesses lose bookings and how smart operators are fixing them with AI." />
   <meta property="og:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
   <meta property="og:url" content="https://learn.cynthiaconcierge.com/catering" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free AI Revenue Audit for Catering Companies | Cynthia" />
-  <meta name="twitter:description" content="See exactly where AI could increase your catering bookings and recover lost revenue. Free audit — no strings attached." />
+  <meta name="twitter:title" content="Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia" />
+  <meta name="twitter:description" content="Get the free report showing where catering businesses lose bookings and how smart operators are fixing them with AI." />
   <meta name="twitter:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,6 +35,9 @@
   </script>
   <!-- End Meta Pixel Code -->
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .catering-hero {
       padding: 56px 24px 32px;
       text-align: center;
@@ -51,13 +54,269 @@
     .catering-subhead {
       margin: 0 auto;
       max-width: 600px;
-      font-size: 17px;
+      font-size: 19px;
+      color: var(--text);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .catering-content { padding: 0 24px 64px; }
+
+    /* Hero Split Section */
+    .hero-split {
+      padding: 64px 24px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    @media (max-width: 968px) {
+      .split-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .form-card {
+        order: -1; /* Show form first on mobile */
+      }
+    }
+
+    /* Report Mockup */
+    .report-mockup {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: radial-gradient(ellipse at center, rgba(222, 184, 135, 0.15) 0%, transparent 70%);
+    }
+    .report-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 8px 24px rgba(222, 184, 135, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .report-image:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.18),
+        0 12px 30px rgba(222, 184, 135, 0.25);
+    }
+    @media (max-width: 968px) {
+      .report-mockup {
+        padding: 20px 0;
+      }
+      .report-image {
+        max-width: 90%;
+      }
+    }
+
+    /* Form Card */
+    .form-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    .form-card-title {
+      margin: 0 0 12px;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .form-card-subtitle {
+      margin: 0 0 28px;
+      font-size: 15px;
       color: var(--text-muted);
       line-height: 1.6;
     }
-    .catering-content { padding: 0 24px 64px; }
-    .catering-calendly-center { max-width: 700px; }
-    .calendly-inline-widget { border-radius: 6px; overflow: hidden; }
+    .lead-form-compact {
+      margin: 0;
+    }
+    .form-disclaimer {
+      margin: 16px 0 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    /* What's Inside Section */
+    .whats-inside-section {
+      padding: 80px 24px;
+      background: var(--bg);
+    }
+    .section-main-title {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 48px;
+      color: var(--text);
+    }
+    .intro-box {
+      background: var(--bg-elevated);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px 40px;
+      margin-bottom: 48px;
+    }
+    .intro-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 16px;
+    }
+    .intro-text:last-child {
+      margin-bottom: 0;
+    }
+    .intro-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .intro-list li {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      padding-left: 28px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .intro-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .insight-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .insight-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .insight-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    .insight-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .insight-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .insight-intro {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0 0 16px;
+      font-weight: 500;
+    }
+    .insight-learn {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+    .insight-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+    }
+    .insight-bullets li {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      padding-left: 28px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .insight-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 12px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .insight-outro {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 16px 0 0;
+      font-style: italic;
+    }
+
+    .result-box {
+      background: linear-gradient(135deg, var(--accent) 0%, #8B2222 100%);
+      border-radius: var(--radius);
+      padding: 48px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 12px 40px rgba(192, 48, 48, 0.3);
+    }
+    .result-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: white;
+    }
+    .result-text {
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0 0 16px;
+      opacity: 0.95;
+    }
+    .result-cta {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0;
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    /* Form Input Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(192, 48, 48, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -72,20 +331,125 @@
       <div class="container">
         <span class="badge">For catering and food truck companies only</span>
         <h1 class="catering-headline">
-          See How AI Could Capture More
-          <span class="hero-headline-accent">Catering Bookings for You</span>
+          Get the Free Report:
+          <span class="hero-headline-accent">The 5 Revenue Leaks in Catering Businesses</span>
         </h1>
         <p class="catering-subhead">
-          In this free AI Revenue Audit, we'll analyze your inquiry response time, follow-up process, and package flow &mdash; and show you exactly where AI could increase bookings and recover lost revenue.
+          (And How Smart Operators Are Fixing Them With AI)
         </p>
       </div>
     </section>
 
-    <section class="catering-content">
-      <div class="container catering-calendly-center">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/cynthia-cynthiaconcierge/30min?hide_gdpr_banner=1&hide_event_type_details=1&primary_color=C03030&text_color=1F1F1F&background_color=FFFBF7" style="min-width:300px;height:700px;"></div>
+    <!-- Hero Section with Report Mockup + Form -->
+    <section class="hero-split" id="get-report">
+      <div class="container">
+        <div class="split-grid">
+          <!-- Left: Report Mockup -->
+          <div class="report-mockup">
+            <img src="/images/revenue-leak-report.png" alt="The 5 Revenue Leaks in Catering Businesses - Free Report" class="report-image" />
+          </div>
+
+          <!-- Right: Lead Form -->
+          <div class="form-card">
+            <h3 class="form-card-title">Get Your Free Copy</h3>
+            <p class="form-card-subtitle">Even if you never work with us, this report will help you capture more catering bookings.</p>
+
+            <form id="catering-form" class="lead-form-compact">
+              <div class="form-group">
+                <input type="text" id="lead-business" name="business" placeholder="Business Name" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="lead-name" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="lead-email" name="email" placeholder="Email Address" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="lead-phone" name="phone" placeholder="Phone Number" required />
+              </div>
+              <button type="submit" class="btn btn-cta btn-large" style="width: 100%;">
+                Get the Free Report →
+              </button>
+            </form>
+
+            <p class="form-disclaimer">We respect your privacy. No spam, ever.</p>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- What's Inside Section -->
+    <section class="whats-inside-section">
+      <div class="container" style="max-width: 900px;">
+        <h2 class="section-main-title">What's Inside?</h2>
+
+        <div class="intro-box">
+          <p class="intro-text">There are really only 3 ways to grow a catering business…</p>
+          <ul class="intro-list">
+            <li>Get more inquiries.</li>
+            <li>Convert more of the inquiries you already get.</li>
+            <li>And run your events without drowning in admin.</li>
+          </ul>
+          <p class="intro-text">Inside this free report, we break down the <strong>5 biggest revenue leaks</strong> most catering companies don't realize they have — and the simple systems smart operators are using to fix them.</p>
+        </div>
+
+        <div class="insight-cards">
+          <!-- Card 1 -->
+          <div class="insight-card">
+            <div class="insight-icon">📞</div>
+            <h3 class="insight-title">How To Capture More Catering Inquiries</h3>
+            <p class="insight-intro">Most catering businesses lose bookings simply because they reply too slow.</p>
+            <p class="insight-learn">Inside you'll learn how operators are using instant response systems to:</p>
+            <ul class="insight-bullets">
+              <li>Reply to inquiries in seconds</li>
+              <li>Qualify leads automatically</li>
+              <li>Capture more corporate and event bookings</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="insight-card">
+            <div class="insight-icon">✉️</div>
+            <h3 class="insight-title">How To Convert More Catering Leads</h3>
+            <p class="insight-intro">Most customers don't say no. They just never hear back again.</p>
+            <p class="insight-learn">Inside we break down the follow-up systems that:</p>
+            <ul class="insight-bullets">
+              <li>Send quotes instantly</li>
+              <li>Follow up automatically</li>
+              <li>Turn more inquiries into confirmed events</li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="insight-card">
+            <div class="insight-icon">⚙️</div>
+            <h3 class="insight-title">How To Stop Drowning In Admin Work</h3>
+            <p class="insight-intro">Most catering owners spend 20–40 hours per week doing admin. Emails. Quotes. Scheduling. Deposits.</p>
+            <p class="insight-learn">Inside we show how operators are automating:</p>
+            <ul class="insight-bullets">
+              <li>Quote generation</li>
+              <li>Deposit reminders</li>
+              <li>Event coordination</li>
+              <li>Client communication</li>
+            </ul>
+            <p class="insight-outro">So you can spend less time in your inbox and more time running your business.</p>
+          </div>
+        </div>
+
+        <div class="result-box">
+          <h3 class="result-title">The Result</h3>
+          <p class="result-text">Instead of chasing emails all day… You have a system that handles inquiries, follow-ups, and bookings automatically.</p>
+          <p class="result-cta">Even if you never work with us, this report will show you where most catering businesses leak money and time.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="#get-report" class="btn btn-cta btn-large scroll-to-form">
+            Send Me the Free Report Now
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -97,16 +461,88 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=4262093707270721&ev=PageView&noscript=1"
   /></noscript>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
-  window.addEventListener('message', function(e) {
-    if (e.data && e.data.event === 'calendly.event_scheduled') {
-      if (typeof fbq === 'function') {
-        fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+  (function() {
+    'use strict';
+
+    var form = document.getElementById('catering-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var business = form.querySelector('#lead-business').value.trim();
+      var name = form.querySelector('#lead-name').value.trim();
+      var email = form.querySelector('#lead-email').value.trim();
+      var phone = form.querySelector('#lead-phone').value.trim();
+
+      if (!business || !name || !email || !phone) {
+        alert('Please fill out all fields');
+        return;
       }
-      window.location.href = '/catering-thank-you';
-    }
-  });
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      // Send to webhook
+      fetch('https://app.cynthiaconcierge.com/catering-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          business: business,
+          name: name,
+          email: email,
+          phone: phone
+        })
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        // Save lead data locally as backup
+        try {
+          localStorage.setItem('catering_lead', JSON.stringify({
+            business: business,
+            name: name,
+            email: email,
+            phone: phone,
+            timestamp: new Date().toISOString()
+          }));
+        } catch (err) {}
+
+        // Track lead capture
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'catering-report-download' });
+        }
+
+        // Redirect to thank you page
+        window.location.href = '/catering-thank-you';
+      })
+      .catch(function(err) {
+        console.error('Failed to submit lead:', err);
+        // Still redirect on error so user gets the report
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+
+        // Save locally and redirect anyway
+        try {
+          localStorage.setItem('catering_lead', JSON.stringify({
+            business: business,
+            name: name,
+            email: email,
+            phone: phone,
+            timestamp: new Date().toISOString()
+          }));
+        } catch (err) {}
+
+        window.location.href = '/catering-thank-you';
+      });
+    });
+  })();
   </script>
 </body>
 </html>
