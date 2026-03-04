@@ -13,6 +13,7 @@ export default defineConfig({
         terms: resolve(__dirname, 'terms.html'),
         catering: resolve(__dirname, 'catering.html'),
         'catering-thank-you': resolve(__dirname, 'catering-thank-you.html'),
+        'catering-booked': resolve(__dirname, 'catering-booked.html'),
       },
     },
   },

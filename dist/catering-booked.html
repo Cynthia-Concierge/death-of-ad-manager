@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Booked! | Cynthia Catering</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-BVRHbxm3.png" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="You're Booked! | Cynthia Catering" />
+  <meta property="og:description" content="Your free catering revenue audit is confirmed. Here's what to expect." />
+  <meta property="og:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
+  <meta property="og:url" content="https://learn.cynthiaconcierge.com/catering-booked" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You're Booked! | Cynthia Catering" />
+  <meta name="twitter:description" content="Your free catering revenue audit is confirmed. Here's what to expect." />
+  <meta name="twitter:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '4262093707270721');
+  fbq('track', 'PageView');
+  fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+  </script>
+  <!-- End Meta Pixel Code -->
+  <style>
+    .booked-hero {
+      padding: 64px 24px 40px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 60%);
+    }
+    .booked-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .booked-headline {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .booked-subtext {
+      margin: 0 auto;
+      max-width: 560px;
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .booked-section {
+      padding: 48px 24px;
+    }
+    .booked-section-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .booked-section-title {
+      margin: 0 0 24px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      counter-reset: step;
+    }
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.6;
+      counter-increment: step;
+    }
+    .steps-list li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .step-content strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .step-content span {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .prep-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 8px;
+    }
+    .prep-card-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .prep-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .prep-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .prep-items li::before {
+      content: "\2713";
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .booked-cta-section {
+      text-align: center;
+      padding: 40px 24px 64px;
+    }
+    .booked-cta-text {
+      max-width: 480px;
+      margin: 0 auto 24px;
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+  </style>
+  <link rel="stylesheet" crossorigin href="/assets/styles-uP_1NkCm.css">
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4262093707270721&ev=PageView&noscript=1"
+  /></noscript>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo"><span class="logo-mark">&#9671;</span> CYNTHIA</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Confirmation -->
+    <section class="booked-hero">
+      <div class="container">
+        <div class="booked-check">&#10003;</div>
+        <h1 class="booked-headline">You're All Set!</h1>
+        <p class="booked-subtext">
+          Your free catering revenue audit is confirmed. We'll show you exactly where your business is leaving money on the table and how to fix it.
+        </p>
+      </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="booked-section">
+      <div class="booked-section-inner">
+        <h2 class="booked-section-title">What Happens Next</h2>
+        <ol class="steps-list">
+          <li>
+            <div class="step-content">
+              <strong>Check Your Email</strong>
+              <span>You'll get a calendar invite with the call details and a Zoom link. We also sent you the free Revenue Leak Report.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-content">
+              <strong>15-Minute Revenue Audit</strong>
+              <span>We'll walk through your current process for handling inquiries, follow-ups, and bookings to identify where events are slipping through the cracks.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-content">
+              <strong>Your Custom Game Plan</strong>
+              <span>You'll leave with a clear picture of how many additional events you could be capturing and the exact steps to get there.</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Prep Tips -->
+    <section class="booked-section" style="padding-top: 0;">
+      <div class="booked-section-inner">
+        <div class="prep-card">
+          <div class="prep-card-label">Get the Most From Your Call</div>
+          <ul class="prep-items">
+            <li>Know roughly how many inquiries you get per month (even a ballpark helps)</li>
+            <li>Think about where most of your leads come from (referrals, website, social, etc.)</li>
+            <li>Have a sense of your average event size and ticket price</li>
+            <li>Be ready to share your biggest bottleneck (follow-ups, scheduling, quoting, etc.)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="booked-cta-section">
+      <p class="booked-cta-text">
+        The average catering company we work with captures 15-30 additional events per year while saving 10-20 hours per week. We can't wait to show you how.
+      </p>
+      <p style="font-size: 14px; color: var(--text-dim);">
+        Questions before the call? Text us at <strong style="color: var(--text-muted);">(213) 551-8629</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">&copy; Cynthia Concierge. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
