@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia</title>
+  <title>Download the System Catering Companies Are Using to Book More Events on Autopilot | Cynthia</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <!-- Open Graph -->
-  <meta property="og:title" content="Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia" />
-  <meta property="og:description" content="Get the free report showing where catering businesses lose bookings and how smart operators are fixing them with AI." />
+  <meta property="og:title" content="Download the System Catering Companies Are Using to Book More Events on Autopilot | Cynthia" />
+  <meta property="og:description" content="How operators are responding to inquiries instantly, sending quotes automatically, and following up until the event is booked." />
   <meta property="og:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
   <meta property="og:url" content="https://learn.cynthiaconcierge.com/catering" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Report: The 5 Revenue Leaks in Catering Businesses | Cynthia" />
-  <meta name="twitter:description" content="Get the free report showing where catering businesses lose bookings and how smart operators are fixing them with AI." />
+  <meta name="twitter:title" content="Download the System Catering Companies Are Using to Book More Events on Autopilot | Cynthia" />
+  <meta name="twitter:description" content="How operators are responding to inquiries instantly, sending quotes automatically, and following up until the event is booked." />
   <meta name="twitter:image" content="https://learn.cynthiaconcierge.com/images/cynthia-avatar.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,8 +68,8 @@
     }
     .split-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
       max-width: 1200px;
       margin: 0 auto;
       align-items: center;
@@ -92,30 +92,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
-      background: radial-gradient(ellipse at center, rgba(222, 184, 135, 0.15) 0%, transparent 70%);
+      padding: 0;
     }
     .report-image {
-      max-width: 100%;
+      width: 130%;
+      max-width: 130%;
       height: auto;
-      border-radius: 8px;
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 8px 24px rgba(222, 184, 135, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 0;
+      transition: transform 0.3s ease;
     }
     .report-image:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.18),
-        0 12px 30px rgba(222, 184, 135, 0.25);
+      transform: scale(1.03);
     }
     @media (max-width: 968px) {
-      .report-mockup {
-        padding: 20px 0;
-      }
       .report-image {
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
       }
     }
 
@@ -331,11 +323,13 @@
       <div class="container">
         <span class="badge">For catering and food truck companies only</span>
         <h1 class="catering-headline">
-          Get the Free Report:
-          <span class="hero-headline-accent">The 5 Revenue Leaks in Catering Businesses</span>
+          <span class="hero-headline-accent">DOWNLOAD THE SYSTEM CATERING COMPANIES ARE USING TO BOOK MORE EVENTS ON AUTOPILOT</span>
         </h1>
         <p class="catering-subhead">
-          (And How Smart Operators Are Fixing Them With AI)
+          How operators are responding to inquiries instantly, sending quotes automatically, and following up until the event is booked.
+        </p>
+        <p class="catering-subhead" style="margin-top: 12px; font-size: 16px; color: var(--text-muted);">
+          (How to finally implement AI into your catering business)
         </p>
       </div>
     </section>
@@ -346,13 +340,13 @@
         <div class="split-grid">
           <!-- Left: Report Mockup -->
           <div class="report-mockup">
-            <img src="/images/revenue-leak-report.png" alt="The 5 Revenue Leaks in Catering Businesses - Free Report" class="report-image" />
+            <img src="/images/catering-system.png" alt="The Catering Booking System — AI-powered booking automation" class="report-image" />
           </div>
 
           <!-- Right: Lead Form -->
           <div class="form-card">
-            <h3 class="form-card-title">Get Your Free Copy</h3>
-            <p class="form-card-subtitle">Even if you never work with us, this report will help you capture more catering bookings.</p>
+            <h3 class="form-card-title">Download the System Now</h3>
+            <p class="form-card-subtitle">Even if you never work with us, this system will help you capture more catering bookings.</p>
 
             <form id="catering-form" class="lead-form-compact">
               <div class="form-group">
@@ -368,7 +362,7 @@
                 <input type="tel" id="lead-phone" name="phone" placeholder="Phone Number" required />
               </div>
               <button type="submit" class="btn btn-cta btn-large" style="width: 100%;">
-                Get the Free Report →
+                Send Me The System →
               </button>
             </form>
 
@@ -444,7 +438,7 @@
 
         <div style="text-align: center; margin-top: 48px;">
           <a href="#get-report" class="btn btn-cta btn-large scroll-to-form">
-            Send Me the Free Report Now
+            Send Me The System
           </a>
         </div>
       </div>
@@ -514,19 +508,17 @@
           }));
         } catch (err) {}
 
-        // Track lead capture
+        // Track lead capture — delay redirect so pixel beacon completes
         if (typeof fbq === 'function') {
           fbq('track', 'Lead', { content_name: 'catering-report-download' });
         }
 
-        // Redirect to thank you page
-        window.location.href = '/catering-thank-you';
+        setTimeout(function() {
+          window.location.href = '/catering-thank-you';
+        }, 500);
       })
       .catch(function(err) {
         console.error('Failed to submit lead:', err);
-        // Still redirect on error so user gets the report
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
 
         // Save locally and redirect anyway
         try {
@@ -539,7 +531,14 @@
           }));
         } catch (err) {}
 
-        window.location.href = '/catering-thank-you';
+        // Track lead even on webhook error
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', { content_name: 'catering-report-download' });
+        }
+
+        setTimeout(function() {
+          window.location.href = '/catering-thank-you';
+        }, 500);
       });
     });
   })();
