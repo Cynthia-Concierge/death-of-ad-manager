@@ -251,11 +251,39 @@
 
   <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
   <script>
-  window.addEventListener('message', function(e) {
-    if (e.data && e.data.type === 'hsFormCallback' && e.data.eventName === 'onCalendarFormSubmit') {
-      window.location.href = '/catering-booked';
-    }
-  });
+  (function() {
+    var booked = false;
+    window.addEventListener('message', function(e) {
+      if (booked) return;
+      var d = e.data;
+      // GHL sends modify-parent-url when redirect is configured
+      if (d && typeof d === 'object' && d.type === 'modify-parent-url') {
+        booked = true;
+        if (typeof fbq === 'function') {
+          fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+        }
+        setTimeout(function() { window.location.href = '/catering-booked'; }, 300);
+        return;
+      }
+      // Fallback: detect iFrameResizer messages containing redirect URL or booking signals
+      if (typeof d === 'string' && d.indexOf('[iFrameSizer]') === 0 && d.indexOf('catering-booked') !== -1) {
+        booked = true;
+        if (typeof fbq === 'function') {
+          fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+        }
+        setTimeout(function() { window.location.href = '/catering-booked'; }, 300);
+        return;
+      }
+      // Fallback: catch any GHL booking confirmation message
+      if (d && typeof d === 'object' && (d.action === 'booking-confirmed' || d.event === 'booking-confirmed' || d.type === 'booking-confirmed')) {
+        booked = true;
+        if (typeof fbq === 'function') {
+          fbq('track', 'Schedule', { content_name: 'catering-audit-booked' });
+        }
+        setTimeout(function() { window.location.href = '/catering-booked'; }, 300);
+      }
+    });
+  })();
   </script>
 </body>
 </html>
