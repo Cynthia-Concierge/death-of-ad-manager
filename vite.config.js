@@ -14,6 +14,8 @@ export default defineConfig({
         catering: resolve(__dirname, 'catering.html'),
         'catering-thank-you': resolve(__dirname, 'catering-thank-you.html'),
         'catering-booked': resolve(__dirname, 'catering-booked.html'),
+        audit: resolve(__dirname, 'audit.html'),
+        'audit-thank-you': resolve(__dirname, 'audit-thank-you.html'),
       },
     },
   },
